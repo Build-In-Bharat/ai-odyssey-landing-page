@@ -2,16 +2,31 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const SegoeUI = localFont({
+  src: [
+    {
+      path: "./fonts/SegoeUI.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/SegoeUIBold.ttf",
+      weight: "700",
+      style: "bold",
+    },
+    {
+      path: "./fonts/SegoeUIItalic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./fonts/SegoeUIBoldItalic.ttf",
+      weight: "700",
+      style: "bold italic",
+    },
+  ],
+  variable: "--font-segoe-ui",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${SegoeUI.variable} bg-[#010101]`}
       >
         {children}
       </body>
